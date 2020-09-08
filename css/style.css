@@ -29,19 +29,17 @@ body{
   z-index: 1;
   width: 80%;
   height: calc(100% - 40px);
-  background-color: pink;
 }
 
 .box-left{
   flex-grow: 1;
-  background-color: orchid;
+  background-color:#fff;
   height: 100%;
   min-width: 300px;
 }
 
 .box-right{
   flex-grow: 2;
-  background-color: green;
   height: 100%;
   max-width: 70%;
 }
@@ -101,6 +99,11 @@ body{
   vertical-align: middle;
 }
 
+.notification-text a{
+  color: #4F7485;
+  font-size: 13px;
+}
+
 .search{
   display: flex;
   align-items: center;
@@ -109,25 +112,35 @@ body{
   background-color: #FAFAFA;
 }
 .btn-search{
-
+  border: 1px solid #F5F5F5;
+  border-right: 0;
+  height: 100%;
+  padding: 5px;
 }
+
+.btn-search i{
+  line-height: 100%;
+  vertical-align: middle;
+  color: #B6B9BB;
+}
+
 .search input{
   width: 90%;
   height: 100%;
   border: 1px solid #F5F5F5;
-  border-radius: 5px;
+  border-left: 0;
+  border-radius: 0 5px 5px 0;
+  padding: 5px;
   /* outline: 1px */
 }
 
 .box-left-bottom{
   height: calc(100% - 200px);
-
 }
-
+/* Connection list */
 .connections-list{
   height: 100%;
   overflow-y: auto;
-
 }
 
 .connections-list-item{
@@ -136,12 +149,26 @@ body{
   align-items: center;
   height: 80px;
   padding: 10px 20px;
-  border-top: 1px solid lightgrey;
+  border-top: 1px solid #F5F5F5;
   background-color: #fff;
 }
 
 .connection-profile img{
   height: 60px;
+}
+
+.profile-info{
+  padding: 5px;
+}
+
+.profile-status{
+  font-size: 12px;
+  color: #BEC0C2;
+}
+
+.connection-last-time{
+  color: #BEC0C2;
+  font-size: 12px;
 }
 
 /* BOX RIGHT CHAT */
@@ -154,6 +181,10 @@ body{
   padding: 50px;
 }
 
+.profile-last-access{
+  color: #6B7376;
+  font-size: 13px;
+}
 /* CHAT INPUT MESSAGE BAR */
 .chat-bottom{
   display: flex;
@@ -178,18 +209,26 @@ body{
   /* outline:  */
 }
 /* TEMPLATES */
-.template{
+.template-sent, .template-recieved{
   display: none;
 }
 
 
 .chat-baloon{
+  position: relative;
   max-width: 70%;
-  border-radius: 15px;
-  padding: 10px;
+  border-radius: 10px;
+  padding: 10px 40px 10px 10px;
   margin: 10px 0;
 }
-.time{
+.text-message{
+  word-break: break-all;
+}
+
+.message-time{
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
   text-align: right;
   font-size: 10px;
   color: #BDC8BA;
@@ -202,5 +241,5 @@ body{
 
 .recieved{
   align-self: flex-start;
-    background-color: #fff;
+  background-color: #fff;
 }
