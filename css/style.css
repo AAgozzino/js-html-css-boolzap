@@ -5,6 +5,10 @@
 }
 
 /* MIX */
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .wrapper-page{
   height: 100vh;
 }
@@ -68,6 +72,7 @@
 .nav-icons i{
   margin: 0 5px;
   color: #B1B1B1;
+  font-size: 20px;
 }
 
 /* BOX LEFT */
@@ -81,15 +86,19 @@
 }
 
 .bell-container{
-  width:50px;
+  width: 50px;
+  flex-shrink: 0;
   height: 50px;
   background-color: #fff;
   border-radius: 50px;
   text-align: center;
   line-height: 50px;
+  margin-right: 10px;
 }
 .fa-bell-slash{
   color: #8EDAFC;
+  font-size: 25px;
+  vertical-align: middle;
 }
 
 .search{
@@ -173,16 +182,12 @@
   display: none;
 }
 
-.chat-message{
-  display: flex;
-  width: 100%;
-}
 
 .chat-baloon{
-  height: 100%;
   max-width: 70%;
   border-radius: 15px;
   padding: 10px;
+  margin: 10px 0;
 }
 .time{
   text-align: right;
@@ -191,14 +196,11 @@
 }
 
 .sent{
-  justify-content: flex-end;
-}
-.sent .chat-baloon{
+  align-self: flex-end;
   background-color: #D5F9BA;
 }
+
 .recieved{
-  justify-content: flex-start;
-}
-.recieved .chat-baloon{
-  background-color: #fff;
+  align-self: flex-start;
+    background-color: #fff;
 }

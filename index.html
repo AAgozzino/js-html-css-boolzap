@@ -49,7 +49,7 @@
             <div class="btn-search">
               <i class="fas fa-search"></i>
             </div>
-            <input type="text">
+            <input id="search-connection" type="text" placeholder="Cerca o inizia una nuova chat">
           </div>
           <!-- /Search -->
         </div>
@@ -105,18 +105,15 @@
 
         <!-- Chat -->
         <div class="chat">
-          <div class="chat-message sent">
-              <div class="chat-baloon">
-                <div class="text-message">Ciao.</div>
-                <div class="time">17.55</div>
-              </div>
+          <div class="chat-baloon sent">
+            <div class="text-message">Ciao.</div>
+            <div class="time">17.55</div>
           </div>
 
-          <div class="chat-message recieved">
-              <div class="chat-baloon">
-                <div class="text-message">Ciao, come stai?</div>
-                <div class="time">17.55</div>
-              </div>
+
+          <div class="chat-baloon recieved">
+            <div class="text-message">Ciao, come stai?</div>
+            <div class="time">17.55</div>
           </div>
         </div>
         <!-- /Chat -->
@@ -124,7 +121,7 @@
         <!-- Writing bar -->
         <div class="chat-bottom">
           <i class="far fa-smile"></i>
-          <input type="text">
+          <input id="user-message" type="text" placeholder="Scrivi un messaggio">
           <!-- <i class="fas fa-microphone"></i> -->
           <i class="fab fa-telegram-plane"></i>
         </div>
@@ -138,13 +135,11 @@
 
   <!-- TEMPLATES  -->
 
-  <!-- Chat baloon -->
+  <!-- Chat baloon - SENT -->
   <div class="template">
-    <div class="chat-message">
-      <div class="chat-baloon">
-        <div class="text-message"></div>
-        <div class="message-time"></div>
-      </div>
+    <div class="chat-baloon sent">
+      <div class="text-message"></div>
+      <div class="time">17.55</div>
     </div>
   </div>
   <!-- /Chat baloon -->
