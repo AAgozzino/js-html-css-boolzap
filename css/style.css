@@ -32,22 +32,45 @@
   flex-grow: 1;
   background-color: orchid;
   height: 100%;
+  min-width: 300px;
 }
 
 .box-right{
   flex-grow: 2;
   background-color: green;
   height: 100%;
+  max-width: 70%;
 }
 
-/* BOX LEFT */
-.myprofile{
+.header{
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #EAEAEA;
   height: 70px;
+  padding: 10px;
+  padding-right: 20px;
 }
+
+.header img {
+ height: 50px;
+}
+
+.round-image-profile{
+  border-radius: 50px;
+}
+
+.connection-profile{
+  display: flex;
+  align-items: center;
+}
+
+.nav-icons i{
+  margin: 0 5px;
+  color: #B1B1B1;
+}
+
+/* BOX LEFT */
 
 .notification{
   display: flex;
@@ -108,12 +131,74 @@
   background-color: #fff;
 }
 
-.connection-profile{
-  display: flex;
-  align-items: center;
-}
-
 .connection-profile img{
   height: 60px;
-  border-radius: 50px;
+}
+
+/* BOX RIGHT CHAT */
+.chat{
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 140px);
+  overflow-y: auto;
+  background-image: url(../img/mine.jpg);
+  padding: 50px;
+}
+
+/* CHAT INPUT MESSAGE BAR */
+.chat-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 10px 40px;
+  background-color: #F3EEEA;
+}
+
+.far.fa-smile, .fab.fa-telegram-plane{
+  font-size: 25px;
+  color: #6B7376;
+}
+
+.chat-bottom input{
+  width: 80%;
+  min-width: 250px;
+  margin: 0 5px;
+  border: none;
+  height: 100%;
+  /* outline:  */
+}
+/* TEMPLATES */
+.template{
+  display: none;
+}
+
+.chat-message{
+  display: flex;
+  width: 100%;
+}
+
+.chat-baloon{
+  height: 100%;
+  max-width: 70%;
+  border-radius: 15px;
+  padding: 10px;
+}
+.time{
+  text-align: right;
+  font-size: 10px;
+  color: #BDC8BA;
+}
+
+.sent{
+  justify-content: flex-end;
+}
+.sent .chat-baloon{
+  background-color: #D5F9BA;
+}
+.recieved{
+  justify-content: flex-start;
+}
+.recieved .chat-baloon{
+  background-color: #fff;
 }

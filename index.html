@@ -22,8 +22,8 @@
         <!-- Box-left-top -->
         <div class="box-left-top">
           <!-- My profile -->
-          <div class="myprofile">
-            <img src="#" alt="Immagine mio profilo">
+          <div class="header">
+            <img class="round-image-profile" src="img/avatar_io.jpg" alt="Immagine mio profilo">
             <div class="nav-icons">
               <i class="fas fa-circle-notch"></i>
               <i class="fas fa-comment-alt"></i>
@@ -61,7 +61,7 @@
           <ul class="connections-list">
             <li class="connections-list-item">
               <div class="connection-profile">
-                <img src="img/avatar_1.jpg" alt="Immagine profilo">
+                <img class="round-image-profile" src="img/avatar_1.jpg" alt="Immagine profilo">
                 <div class="profile-info">
                   <div class="profile-name">Michele</div>
                   <div class="profile-status">Non poteva essere altrimenti</div>
@@ -86,12 +86,48 @@
       <!-- Box-right -->
       <div class="box-right">
         <!-- Connection profile -->
+        <div class="header">
+          <div class="connection-profile">
+            <img class="round-image-profile" src="img/avatar_1.jpg" alt="Immagine profilo chat">
+            <div class="chat-profile-info">
+              <div class="profile-name">Michele</div>
+              <div class="profile-last access">Ultimo accesso 17.55</div>
+            </div>
+          </div>
+
+          <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
         <!-- /Connection profile -->
 
         <!-- Chat -->
+        <div class="chat">
+          <div class="chat-message sent">
+              <div class="chat-baloon">
+                <div class="text-message">Ciao.</div>
+                <div class="time">17.55</div>
+              </div>
+          </div>
+
+          <div class="chat-message recieved">
+              <div class="chat-baloon">
+                <div class="text-message">Ciao, come stai?</div>
+                <div class="time">17.55</div>
+              </div>
+          </div>
+        </div>
         <!-- /Chat -->
 
         <!-- Writing bar -->
+        <div class="chat-bottom">
+          <i class="far fa-smile"></i>
+          <input type="text">
+          <!-- <i class="fas fa-microphone"></i> -->
+          <i class="fab fa-telegram-plane"></i>
+        </div>
         <!-- /Writing bar -->
       </div>
       <!-- /Box-right -->
@@ -103,6 +139,14 @@
   <!-- TEMPLATES  -->
 
   <!-- Chat baloon -->
+  <div class="template">
+    <div class="chat-message">
+      <div class="chat-baloon">
+        <div class="text-message"></div>
+        <div class="message-time"></div>
+      </div>
+    </div>
+  </div>
   <!-- /Chat baloon -->
 
   <!-- Connection profile - TO DO??????-->
