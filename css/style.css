@@ -74,6 +74,7 @@ body{
   font-size: 20px;
 }
 
+
 /* BOX LEFT */
 
 .notification{
@@ -154,6 +155,9 @@ body{
   background-color: #fff;
 }
 
+.connections-list-item.active{
+  background-color: #E9EBEB;
+}
 .connection-profile img{
   height: 60px;
 }

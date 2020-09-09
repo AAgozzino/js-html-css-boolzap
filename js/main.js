@@ -20,17 +20,50 @@ $(document).ready(function(){
 $("#search-connection").keyup(
   function () {
     var toSearch = $("#search-connection").val().toLowerCase();
-    $(".profile-info .profile-name").each(function(){
-      var match = $(this).text().toLowerCase();
-      if (match.indexOf(toSearch) != -1) {
-        $(this).parents(".connections-list-item").show();
+    $(".profile-info .profile-name").each(
+      function(){
+        var match = $(this).text().toLowerCase();
+        if (match.indexOf(toSearch) != -1) {
+          $(this).parents(".connections-list-item").show();
+        }
+        else {
+          $(this).parents(".connections-list-item").hide();
+        }
       }
-      else {
-        $(this).parents(".connections-list-item").hide();
-      }
-    })
+    )
   }
 );
+
+// Active chat connection
+$(".connections-list-item").click(
+  function(){
+    $(".connections-list-item").removeClass("active");
+    $(this).addClass("active");
+  }
+);
+
+//Switch chat active
+$(".connections-list-item").click(
+  function(){
+    var connectionIndex = $(this).data();
+    console.log(connectionIndex);
+    $(".chat").each(
+      function(){
+        var chatIndex = $(this).data();
+        console.log(chatIndex.conversazione);
+        console.log(connectionIndex);
+
+        if (chatIndex.conversazione == connectionIndex.conversazione) {
+          $(this).show();
+        }
+        else {
+          $(this).hide();
+        }
+      }
+    )
+  }
+);
+
 
 // FUNCTION - Message Sent + Auto answer
 function sendMessage() {
