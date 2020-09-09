@@ -178,12 +178,15 @@ body{
 
 /* BOX RIGHT CHAT */
 .chat{
-  display: flex;
-  flex-direction: column;
+  display: none;
   height: calc(100% - 140px);
   overflow-y: auto;
   background-image: url(../img/mine.jpg);
   padding: 50px;
+}
+.chat.active{
+  display: flex;
+  flex-direction: column;
 }
 
 .profile-last-access{
