@@ -21,10 +21,12 @@ $("#search-connection").keyup(
     var toSearch = $("#search-connection").val();
     console.log(toSearch);
     $(".profile-info .profile-name").each(function(){
-      var match = $(this).text();
+      var match = $(this).text().toLowerCase();
+      console.log($(this));
       console.log(match);
       if (match.indexOf(toSearch) != -1) {
-        $(this).parents("connections-list-item").show();
+        $(this).parents(".connections-list-item").show();
+        console.log(match.indexOf(toSearch) != -1);
       }
       else {
         $(this).parents("connections-list-item").hide();
