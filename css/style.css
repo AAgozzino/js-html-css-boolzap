@@ -27,7 +27,8 @@ body{
   transform: translateX(-50%);
   margin: 20px auto;
   z-index: 1;
-  width: 80%;
+  max-width: 1024px;
+  width: 100%;
   height: calc(100% - 40px);
 }
 
@@ -140,7 +141,7 @@ body{
 /* Connection list */
 .connections-list{
   height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .connections-list-item{
@@ -195,6 +196,10 @@ body{
   background-color: #F3EEEA;
 }
 
+.chat-profile-info{
+  margin-left: 10px;
+}
+
 .far.fa-smile, .fab.fa-telegram-plane{
   font-size: 25px;
   color: #6B7376;
@@ -209,10 +214,9 @@ body{
   /* outline:  */
 }
 /* TEMPLATES */
-.template-sent, .template-recieved{
+.template{
   display: none;
 }
-
 
 .chat-baloon{
   position: relative;
