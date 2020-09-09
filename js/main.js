@@ -1,12 +1,14 @@
 $(document).ready(function(){
+  // Send message pushing enter
   $("#user-message").keyup(
-    function(event){
+    function(){
       if (event.which == 13) {
         sendMessage();
       }
     }
   );
 
+  // Send message by click icon
   $("#send-message").click(
     function(){
       sendMessage();
@@ -14,9 +16,23 @@ $(document).ready(function(){
   )
 });
 
-// FUNCTION - Message Sent
-
-
+$("#search-connection").keyup(
+  function () {
+    var toSearch = $("#search-connection").val();
+    console.log(toSearch);
+    $(".profile-info .profile-name").each(function(){
+      var match = $(this).text();
+      console.log(match);
+      if (match.indexOf(toSearch) != -1) {
+        $(this).parents("connections-list-item").show();
+      }
+      else {
+        $(this).parents("connections-list-item").hide();
+      }
+    })
+  }
+);
+// FUNCTION - Message Sent + Auto answer
 function sendMessage() {
   var textNewMessage = $("#user-message").val();
 
