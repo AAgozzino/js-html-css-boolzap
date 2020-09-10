@@ -40,20 +40,32 @@ $(".connections-list-item").click(
     $(".connections-list-item").removeClass("active");
     $(this).addClass("active");
 
-    var connectionIndex = $(this).data();
+    // Switch contatto chat attiva
+    var connectionName = $(this).find(".profile-name").text();
+    console.log(connectionName);
+    $(".box-right .header .profile-name").text(connectionName);
+
+    // Switch immagine profilo chat attiva
+    var imgChatActive = $(".box-right .header img");
+    var connectionImg = $(this).find("img").clone();
+    imgChatActive.replaceWith(connectionImg);
+    console.log(imgChatActive);
+    console.log(connectionImg);
+
+    // Switch chat attiva
+    var connectionIndex = $(this).attr("data-connection");
     // console.log(connectionIndex);
     $(".chat").each(
       function(){
-        var chatIndex = $(this).data();
+        var chatIndex = $(this).attr("data-chat");
         // console.log(chatIndex.conversazione);
         // console.log(connectionIndex);
-
-        if (chatIndex.conversazione == connectionIndex.conversazione) {
+        if (chatIndex == connectionIndex) {
           $(".chat").removeClass("active");
           $(this).addClass("active");
         }
       }
-    )
+    );
   }
 );
 
