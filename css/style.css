@@ -154,7 +154,9 @@ body{
   border-top: 1px solid #F5F5F5;
   background-color: #fff;
 }
-
+.connections-list-item:hover{
+  cursor: pointer;
+}
 .connections-list-item.active{
   background-color: #E9EBEB;
 }
@@ -229,13 +231,53 @@ body{
   position: relative;
   max-width: 70%;
   border-radius: 10px;
-  padding: 10px 40px 10px 10px;
+  padding: 10px 10px 20px 10px;
   margin: 10px 0;
+}
+
+.baloon-text{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .text-message{
   word-break: break-all;
+  padding-right: 5px;
 }
 
+.baloon-text i{
+  display: inline-block;
+  color: #B1B1B1;
+}
+
+.baloon-dropdownmenu{
+  display: none;
+  padding: 10px;
+  background-color: #fff;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.chat-baloon.sent .baloon-dropdownmenu{
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+
+.chat-baloon.recieved .baloon-dropdownmenu{
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.dropdownmenu-list li{
+  list-style: none;
+  padding: 5px;
+}
+.dropdownmenu-list li:hover{
+  color: #6B7376;
+  cursor: pointer;
+}
 .message-time{
   position: absolute;
   right: 5px;

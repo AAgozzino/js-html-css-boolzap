@@ -13,63 +13,75 @@ $(document).ready(function(){
     function(){
       sendMessage();
     }
-  )
+  );
+
+  // Active chat connection
+  $(".connections-list-item").click(
+    function(){
+      $(".connections-list-item").removeClass("active");
+      $(this).addClass("active");
+
+      // Switch connection name chat active
+      var connectionName = $(this).find(".profile-name").text();
+      // console.log(connectionName);
+      $(".box-right .header .profile-name").text(connectionName);
+
+      // Switch img profile chat active
+      var imgChatActive = $(".box-right .header img");
+      var connectionImg = $(this).find("img").clone();
+      imgChatActive.replaceWith(connectionImg);
+      // console.log(imgChatActive);
+      // console.log(connectionImg);
+
+      // Switch chat active
+      var connectionIndex = $(this).attr("data-connection");
+      // console.log(connectionIndex);
+      $(".chat").each(
+        function(){
+          var chatIndex = $(this).attr("data-chat");
+          // console.log(chatIndex.conversazione);
+          // console.log(connectionIndex);
+          if (chatIndex == connectionIndex) {
+            $(".chat").removeClass("active");
+            $(this).addClass("active");
+          }
+        }
+      );
+    }
+  );
+
+  // Search connection
+  $("#search-connection").keyup(
+    function () {
+      var toSearch = $("#search-connection").val().toLowerCase();
+      $(".profile-info .profile-name").each(
+        function(){
+          var match = $(this).text().toLowerCase();
+          if (match.indexOf(toSearch) != -1) {
+            $(this).parents(".connections-list-item").show();
+          }
+          else {
+            $(this).parents(".connections-list-item").hide();
+          }
+        }
+      )
+    }
+  );
+
+  // Open dropdown-menu
+  $(document).on("click", ".baloon-text i",
+    function() {
+      $(this).parent().siblings(".baloon-dropdownmenu").toggle();
+    }
+  );
+
+  // Delete message
+  $(document).on("click", ".baloon-dropdownmenu .delete",
+    function() {
+      $(this).parents(".chat-baloon").remove();
+    }
+  );
 });
-
-// Search connection
-$("#search-connection").keyup(
-  function () {
-    var toSearch = $("#search-connection").val().toLowerCase();
-    $(".profile-info .profile-name").each(
-      function(){
-        var match = $(this).text().toLowerCase();
-        if (match.indexOf(toSearch) != -1) {
-          $(this).parents(".connections-list-item").show();
-        }
-        else {
-          $(this).parents(".connections-list-item").hide();
-        }
-      }
-    )
-  }
-);
-
-// Active chat connection
-$(".connections-list-item").click(
-  function(){
-    $(".connections-list-item").removeClass("active");
-    $(this).addClass("active");
-
-    // Switch contatto chat attiva
-    var connectionName = $(this).find(".profile-name").text();
-    console.log(connectionName);
-    $(".box-right .header .profile-name").text(connectionName);
-
-    // Switch immagine profilo chat attiva
-    var imgChatActive = $(".box-right .header img");
-    var connectionImg = $(this).find("img").clone();
-    imgChatActive.replaceWith(connectionImg);
-    console.log(imgChatActive);
-    console.log(connectionImg);
-
-    // Switch chat attiva
-    var connectionIndex = $(this).attr("data-connection");
-    // console.log(connectionIndex);
-    $(".chat").each(
-      function(){
-        var chatIndex = $(this).attr("data-chat");
-        // console.log(chatIndex.conversazione);
-        // console.log(connectionIndex);
-        if (chatIndex == connectionIndex) {
-          $(".chat").removeClass("active");
-          $(this).addClass("active");
-        }
-      }
-    );
-  }
-);
-
-
 
 // FUNCTION - Message Sent + Auto answer
 function sendMessage() {
@@ -77,8 +89,8 @@ function sendMessage() {
 
   if (textNewMessage.length > 0) {
     var newMessage = $(".template .chat-baloon").clone();
-    newMessage.children(".text-message").append(textNewMessage);
-    newMessage.children(".message-time").append(time());
+    newMessage.find(".text-message").append(textNewMessage);
+    newMessage.find(".message-time").append(time());
     newMessage.addClass("sent");
     $(".chat.active").append(newMessage);
     $("#user-message").val("");
@@ -87,9 +99,9 @@ function sendMessage() {
   setTimeout(function(reply){
     var replyText = "Ok";
     var replyMessage = $(".template .chat-baloon").clone();
-    replyMessage.children(".text-message").append(replyText);
+    replyMessage.find(".text-message").append(replyText);
     replyMessage.addClass("recieved");
-    replyMessage.children(".message-time").append(time());
+    replyMessage.find(".message-time").append(time());
     $(".chat.active").append(replyMessage);
   }, 1000);
 };
