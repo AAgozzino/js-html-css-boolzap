@@ -49,12 +49,19 @@ $(document).ready(function(){
       );
 
       // Switch time last access
-      changeAccessTime();
-    };
 
-    // 
+      var lastAccessActive = $(this).find("connection-last-time");
+      // console.log(lastAccessActive);
+      var conncectionLastAccess = $(".chat.active .chat-baloon:last-child .message-time").text();
+      // console.log(conncectionLastAccess);
+      lastAccessActive.text(conncectionLastAccess);
+      $(".box-right .header .last-time").text(lastAccessActive);
+      // changeAccessTime();
+    }
 
   );
+
+  // Connection profile time last access
 
   // Search connection
   $("#search-connection").keyup(
@@ -112,7 +119,7 @@ function sendMessage() {
     replyMessage.addClass("recieved");
     replyMessage.find(".message-time").append(time());
     $(".chat.active").append(replyMessage);
-    changeAccessTime();
+    // changeAccessTime();
     $(".profile-last-access").show();
     $(".is-writing").hide();
   }, 1000);
@@ -130,12 +137,4 @@ function time(){
     minutes = "0" + minutes;
   }
   return hours + ":" + minutes
-};
-
-function changeAccessTime(){
-  var lastAccessActive = $(".box-right .header .last-time");
-  // console.log(lastAccessActive);
-  var conncectionLastAccess = $(".chat.active .chat-baloon:last-child .message-time").text();
-  // console.log(conncectionLastAccess);
-  lastAccessActive.text(conncectionLastAccess);
 };
