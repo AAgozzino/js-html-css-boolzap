@@ -47,7 +47,13 @@ $(document).ready(function(){
           }
         }
       );
-    }
+
+      // Switch time last access
+      changeAccessTime();
+    };
+
+    // 
+
   );
 
   // Search connection
@@ -81,6 +87,7 @@ $(document).ready(function(){
       $(this).parents(".chat-baloon").remove();
     }
   );
+
 });
 
 // FUNCTION - Message Sent + Auto answer
@@ -96,6 +103,8 @@ function sendMessage() {
     $("#user-message").val("");
   }
 
+  $(".profile-last-access").hide();
+  $(".is-writing").show();
   setTimeout(function(reply){
     var replyText = "Ok";
     var replyMessage = $(".template .chat-baloon").clone();
@@ -103,7 +112,11 @@ function sendMessage() {
     replyMessage.addClass("recieved");
     replyMessage.find(".message-time").append(time());
     $(".chat.active").append(replyMessage);
+    changeAccessTime();
+    $(".profile-last-access").show();
+    $(".is-writing").hide();
   }, 1000);
+
 };
 
 function time(){
@@ -117,4 +130,12 @@ function time(){
     minutes = "0" + minutes;
   }
   return hours + ":" + minutes
+};
+
+function changeAccessTime(){
+  var lastAccessActive = $(".box-right .header .last-time");
+  // console.log(lastAccessActive);
+  var conncectionLastAccess = $(".chat.active .chat-baloon:last-child .message-time").text();
+  // console.log(conncectionLastAccess);
+  lastAccessActive.text(conncectionLastAccess);
 };

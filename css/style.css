@@ -179,6 +179,10 @@ body{
 }
 
 /* BOX RIGHT CHAT */
+.is-writing{
+  display: none;
+}
+
 .chat{
   display: none;
   height: calc(100% - 140px);
@@ -256,6 +260,7 @@ body{
   background-color: #fff;
   text-align: center;
   white-space: nowrap;
+  z-index: 2;
 }
 
 .chat-baloon.sent .baloon-dropdownmenu{
